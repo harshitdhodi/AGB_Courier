@@ -95,7 +95,7 @@ const AboutThree = () => {
             </div>
             <div className="row">
               <div className="col-12">
-                <AboutFunFactOne itemClass="about-counter-container mt-90" />
+                <AboutFunFactOne itemClass=" mt-10" />
               </div>
             </div>
           </div>

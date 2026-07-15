@@ -1,3 +1,18 @@
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mona Sans — variable font from GitHub */
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('https://github.githubassets.com/assets/Mona-Sans.woff2') format('woff2 supports variations'),
+       url('https://github.githubassets.com/assets/Mona-Sans.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import 'bootstrap/scss/bootstrap';
 @import 'animate.css/animate.min.css';
 @import 'swiper/scss';

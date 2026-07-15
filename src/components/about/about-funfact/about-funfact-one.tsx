@@ -27,7 +27,7 @@ const counterData = [
 
 const AboutFunFactOne = ({ itemClass }: AboutProps) => {
   return (
-    <div className={itemClass || 'about-counter-container'}>
+    <div className={itemClass || ''}>
       <div className="row gx-0">
         {counterData.map((item) => (
           <div key={item.id} className="col-md-4 col-sm-6 counter-col">

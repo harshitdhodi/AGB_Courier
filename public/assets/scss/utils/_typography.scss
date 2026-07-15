@@ -1,0 +1,12 @@
+
+// font url (Mona Sans loaded via @font-face in globals.scss)
+$font-url: '';
+
+// font family
+$font-family: (
+    'ff': (
+        'body': "'Mona Sans', sans-serif",
+        'heading': "'Mona Sans', sans-serif",
+        'fontawesome':"Font Awesome 6 Pro",
+    )
+);

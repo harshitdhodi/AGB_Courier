@@ -1,20 +1,6 @@
 import type { Metadata } from 'next';
-import { Open_Sans, Sora } from 'next/font/google';
 import './globals.scss';
 import StoreProvider from './store-provider';
-
-const openSans = Open_Sans({
-  weight: ['300', '400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  variable: '--it-ff-body',
-});
-
-const sora = Sora({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  variable: '--it-ff-heading',
-});
 
 export const metadata: Metadata = {
   title: 'Togelo - Transport & Logistics Next Js Template',
@@ -28,10 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body
-        suppressHydrationWarning={true}
-        className={`${openSans.variable} ${sora.variable}`}
-      >
+      <body suppressHydrationWarning={true}>
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>

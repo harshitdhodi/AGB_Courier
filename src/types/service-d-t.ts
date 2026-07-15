@@ -2,7 +2,7 @@ import { StaticImageData } from 'next/image';
 
 export interface IServiceDT {
   id: number;
-  image?: StaticImageData;
+  image?: StaticImageData | string;
   bgImage?: string;
   icon?: React.ReactNode;
   title: string;

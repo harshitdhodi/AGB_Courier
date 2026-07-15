@@ -9,7 +9,7 @@ import { NextArrowTwo, PrevArrowTwo } from '@/components/svg';
 const sliderData = [
   {
     id: 1,
-    bgImg: '/assets/img/slider/slider-1-3.jpg',
+    bgImg: 'https://ik.imagekit.io/mikbqwyy0/be4a2ed9-2ea3-4372-8198-547841539f08.png',
     title: 'Efficient Logistics for Global Shipping',
     subtitle: `Delivering Cargo Beyond country's`,
     description: `Efficient logistics enhances global shipping by reducing <br>
@@ -19,7 +19,7 @@ const sliderData = [
   },
   {
     id: 2,
-    bgImg: '/assets/img/slider/slider-1-2.jpg',
+    bgImg: 'https://ik.imagekit.io/mikbqwyy0/c073c1d6-d8e8-4a0c-8a67-395461bbee4e.png',
     title: 'Modern Logistics <br> Transportation',
     subtitle: `EFFORTLESS SHIPPING`,
     description: `Efficient logistics enhances global shipping by reducing <br>
@@ -29,7 +29,7 @@ const sliderData = [
   },
   {
     id: 3,
-    bgImg: '/assets/img/slider/slider-1-1.jpg',
+    bgImg: 'https://ik.imagekit.io/mikbqwyy0/4723a5e3-690a-4e91-8c14-8d57896f109c.png',
     title: 'Trusted Global <br> Freight Solutions',
     subtitle: `INNOVATIVE LOGISTICS`,
     description: `Efficient logistics enhances global shipping by reducing <br>

@@ -52,7 +52,7 @@ const AboutTwo = () => {
             <div className="it-about-2-thumb">
               <Image
                 className="image-height-auto"
-                src={aboutImg}
+                src="https://ik.imagekit.io/mikbqwyy0/26d2e064-f599-43e4-8b48-6cf33c913a88.png"
                 alt="about-img"
                 width={531}
                 height={494}
@@ -66,15 +66,8 @@ const AboutTwo = () => {
           >
             <div className="it-about-2-right">
               <Tabs>
-                <div className="it-about-2-tab-btn mb-25">
-                  <TabList className="nav nav-tab" id="myTab" role="tablist">
-                    {tabNames.map((item) => (
-                      <Tab key={item.id}>
-                        <button className="nav-links">{item.tabName}</button>
-                      </Tab>
-                    ))}
-                  </TabList>
-                </div>
+              
+              
                 <div className="it-about-2-tab-content-wrap mb-90">
                   <div className="tab-content" id="myTabContent">
                     {tabNames.map((item) => (

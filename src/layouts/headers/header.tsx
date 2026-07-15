@@ -14,18 +14,16 @@ import OffCanvas from '@/components/offcanvas/offcanvas';
 import { MenuBar, Search } from '@/components/svg';
 import SearchPopup from '@/components/search-popup/search-popup';
 
-import Logo from '@/assets/img/logo/logo-red.png';
-
 interface HeaderProps {
   headerClass?: string;
-  headerLogo?: StaticImageData;
+  headerLogo?: StaticImageData | string;
   hasTopBar?: boolean;
   hasPopUp?: boolean;
 }
 
 const Header = ({
   headerClass = 'it-header-area it-header-ptb it-header-style-2',
-  headerLogo = Logo,
+  headerLogo = 'https://ik.imagekit.io/mikbqwyy0/WhatsApp%20Image%202026-07-14%20at%207.14.57%20PM.jpeg',
   hasTopBar = true,
   hasPopUp = true,
 }: HeaderProps) => {
@@ -66,14 +64,14 @@ const Header = ({
             <div className="p-relative">
               <div className="row align-items-center">
                 <div className="col-xxl-2 col-xl-2 col-6">
-                  <div className="it-header-logo">
+                  <div className="it-header-logo p-2">
                     <Link href="/">
                       <Image
                         className="image-height-auto"
                         src={headerLogo}
                         alt="Togeto"
-                        width={226}
-                        height={60}
+                        width={90}
+                        height={40}
                       />
                     </Link>
                   </div>

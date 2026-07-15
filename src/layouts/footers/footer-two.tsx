@@ -7,8 +7,9 @@ import Newsletter from '@/components/newsletter/newsletter';
 import FooterWidgetFour from '@/components/footer-widget/footer-widget-four';
 
 import shapeImg from '@/assets/img/shape/footer-1-1.png';
-import Logo from '@/assets/img/logo/logo-white.png';
 import { Dribble, Facebook, Instagram, X } from '@/components/svg';
+
+const Logo = 'https://ik.imagekit.io/mikbqwyy0/WhatsApp%20Image%202026-07-14%20at%207.14.57%20PM.jpeg';
 
 const socialData = [
   { id: 1, url: '#', platform: <Facebook /> },
@@ -43,8 +44,14 @@ const FooterTwo = () => {
               >
                 <div className="it-footer-widget it-footer-col-1">
                   <div className="it-footer-widget-logo mb-30">
-                    <Link href="/">
-                      <Image src={Logo} alt="Togeto" width={163} height={43} />
+                    <Link href="/" className="it-footer-logo-link">
+                      <Image
+                        src={Logo}
+                        alt="logo"
+                        width={160}
+                        height={50}
+                        className="it-footer-logo-img"
+                      />
                     </Link>
                   </div>
                   <div className="it-footer-widget-text">
