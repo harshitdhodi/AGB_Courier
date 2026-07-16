@@ -1,11 +1,6 @@
 import { IServiceDT } from '@/types/service-d-t';
 
-import serviceImg1 from '@/assets/img/service/service-1-1.jpg';
-import serviceImg2 from '@/assets/img/service/service-1-2.jpg';
-import serviceImg3 from '@/assets/img/service/service-1-3.jpg';
-import serviceImg4 from '@/assets/img/service/service-1-4.jpg';
 import serviceImg5 from '@/assets/img/service/service-5-1.jpg';
-import serviceDetailsImg from '@/assets/img/service/service-details.jpg';
 import {
   ServiceIconEight,
   ServiceIconEleven,
@@ -24,43 +19,47 @@ import {
 export const serviceDataOne: IServiceDT[] = [
   {
     id: 1,
-    image: serviceImg1,
+    image: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
     title: 'Long Distance Moves',
     description: `Logistics ensures the efficient movement of goods,
                           managing transportation, storage, and delivery. It
                           plays a vital role in connecting businesses and
                           customers.`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
+    category: 'Transport',
   },
   {
     id: 2,
-    image: serviceImg2,
+    image: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
     title: 'International Moves',
     description: `Logistics ensures the efficient movement of goods,
                           managing transportation, storage, and delivery. It
                           plays a vital role in connecting businesses and
                           customers.`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
+    category: 'International',
   },
   {
     id: 3,
-    image: serviceImg3,
+    image: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
     title: 'Corporate Moves',
     description: `Logistics ensures the efficient movement of goods,
                           managing transportation, storage, and delivery. It
                           plays a vital role in connecting businesses and
                           customers.`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
+    category: 'Corporate',
   },
   {
     id: 4,
-    image: serviceImg4,
+    image: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
     title: 'Local Moves in Town',
     description: `Logistics ensures the efficient movement of goods,
                           managing transportation, storage, and delivery. It
                           plays a vital role in connecting businesses and
                           customers.`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
+    category: 'Local',
   },
 ];
 
@@ -71,7 +70,7 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Global Shipping',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
     btnText: 'More About Us',
     image: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
     category: 'Shipping',
@@ -82,7 +81,7 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Ocean Freight',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
     btnText: 'More About Us',
     image: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
     category: 'Freight',
@@ -93,7 +92,7 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Warehousing',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
     btnText: 'More About Us',
     image: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
     category: 'Storage',
@@ -104,7 +103,7 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Rail Freight',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
     btnText: 'More About Us',
     image: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
     category: 'Logistics',
@@ -115,8 +114,10 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Supply Management',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
     btnText: 'More About Us',
+    image: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
+    category: 'Supply Chain',
   },
   {
     id: 10,
@@ -124,8 +125,10 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Reverse Logistics',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
     btnText: 'More About Us',
+    image: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
+    category: 'Logistics',
   },
   {
     id: 11,
@@ -133,8 +136,10 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Warehousing',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
     btnText: 'More About Us',
+    image: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
+    category: 'Storage',
   },
   {
     id: 12,
@@ -142,8 +147,10 @@ export const serviceDataTwo: IServiceDT[] = [
     title: 'Rail Freight',
     description: `Togeto specializes in international shipping, offering fast,
                 secure, and cost-effective solutions to connect Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic beatae sit vel illum eligendi, quae vero rerum quidem id!`,
-    detailsImage: serviceDetailsImg,
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
     btnText: 'More About Us',
+    image: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
+    category: 'Freight',
   },
 ];
 
@@ -151,37 +158,42 @@ export const serviceDataThree: IServiceDT[] = [
   {
     id: 13,
     bgImage: '/assets/img/portfolio/portfolio-3-5.jpg',
+    image: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
     serviceCount: '01',
     title: 'Long Distance Moves',
-    detailsImage: serviceDetailsImg,
   },
   {
     id: 14,
     bgImage: 'assets/img/portfolio/portfolio-3-2.jpg',
+    image: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
     serviceCount: '02',
     title: 'International Moves',
-    detailsImage: serviceDetailsImg,
   },
   {
     id: 15,
     bgImage: '/assets/img/portfolio/portfolio-3-3.jpg',
+    image: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
     serviceCount: '03',
     title: 'Corporate Moves',
-    detailsImage: serviceDetailsImg,
   },
   {
     id: 16,
     bgImage: 'assets/img/portfolio/portfolio-3-4.jpg',
+    image: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
     serviceCount: '04',
     title: 'Local Moves in Town',
-    detailsImage: serviceDetailsImg,
   },
   {
     id: 17,
     bgImage: 'assets/img/portfolio/portfolio-3-5.jpg',
+    image: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
+    detailsImage: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
     serviceCount: '05',
     title: 'Ocean Freight',
-    detailsImage: serviceDetailsImg,
   },
 ];
 
@@ -192,6 +204,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Fast Delivery',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
+    category: 'Delivery',
   },
   {
     id: 19,
@@ -199,6 +213,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Advance technology',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
+    category: 'Technology',
   },
   {
     id: 20,
@@ -206,6 +222,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Shipping Insurance',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
+    category: 'Insurance',
   },
   {
     id: 21,
@@ -213,6 +231,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Ecological balance',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
+    category: 'Sustainability',
   },
   {
     id: 22,
@@ -220,6 +240,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Global Shipping',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png',
+    category: 'Shipping',
   },
   {
     id: 23,
@@ -227,6 +249,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Intermodal Transport',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png',
+    category: 'Transport',
   },
   {
     id: 24,
@@ -234,6 +258,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Container Services',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png',
+    category: 'Containers',
   },
   {
     id: 25,
@@ -241,6 +267,8 @@ export const serviceDataFour: IServiceDT[] = [
     title: 'Real-Time Tracking',
     description: `Togeto specializes in international shipping, offering fast,
                   secure, <br /> and cost-effective solution.`,
+    image: 'https://ik.imagekit.io/mikbqwyy0/f91ef2d5-be8b-4880-b384-bd9378cb3a23.png',
+    category: 'Tracking',
   },
 ];
 

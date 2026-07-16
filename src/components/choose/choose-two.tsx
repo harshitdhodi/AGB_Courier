@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import chooseImg1 from '@/assets/img/choose/choose-2-1.jpg';
-
 const ChooseTwo = () => {
   return (
     <div

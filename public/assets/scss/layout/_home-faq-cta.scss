@@ -309,8 +309,8 @@
     padding: 6px 16px;
     border-radius: 4px;
     font-size: 13px;
-    font-weight: 700;
-    font-family: var(--it-ff-heading);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: inline-flex;
@@ -321,8 +321,8 @@
   
   & .section-title {
     font-size: 44px;
-    font-weight: 800;
-    font-family: var(--it-ff-heading);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     line-height: 1.22;
     color: var(--it-common-black);
     margin-bottom: 40px;
@@ -399,8 +399,8 @@
   
   & .card-title {
     font-size: 20px;
-    font-weight: 700;
-    font-family: var(--it-ff-heading);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     color: var(--it-common-black);
     margin-bottom: 15px;
   }
@@ -411,6 +411,7 @@
     color: var(--it-text-body);
     margin-bottom: 20px;
     font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-body), sans-serif;
   }
   
   & .card-list {
@@ -422,8 +423,8 @@
       display: flex;
       align-items: center;
       font-size: 14px;
-      font-weight: 600;
-      font-family: var(--it-ff-heading);
+      font-weight: 500;
+      font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
       color: var(--it-common-black);
       margin-bottom: 12px;
       
@@ -469,6 +470,13 @@
 /*  Team Slider Section Styles
 /*----------------------------------------*/
 
+/*----------------------------------------*/
+/*  Team Slider Section Styles
+/*----------------------------------------*/
+
+/* Load Mona Sans — weight 500 for all section headings */
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700;800&display=swap');
+
 .it-team-slider-section {
   background-color: #f6f7f9;
   padding-top: 130px;
@@ -481,17 +489,33 @@
 .team-slider-left-card {
   background-color: var(--it-common-white);
   border-radius: 12px;
-  padding: 50px;
+  padding: clamp(36px, 4vw, 60px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(15, 49, 58, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  min-height: clamp(480px, 55vw, 620px);
   position: relative;
   
   @media #{$xs} {
     padding: 30px;
+    min-height: 480px;
+  }
+}
+
+/* Section title — now rendered inside the left card */
+.team-section-title {
+  font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
+  font-weight: 500;
+  font-size: clamp(26px, 3vw, 44px);
+  line-height: 1.2;
+  color: var(--it-common-black);
+  margin-bottom: 20px;
+
+  & span {
+    color: var(--it-theme-1);
   }
 }
 
@@ -503,12 +527,28 @@
 }
 
 .team-slider-text {
-  font-size: 16px;
+  font-size: clamp(15px, 1.4vw, 18px);
   line-height: 1.8;
   color: #525252;
   font-weight: 500;
+  font-family: 'Mona Sans', var(--it-ff-body), sans-serif;
   margin-bottom: 30px;
-  min-height: 100px;
+  min-height: clamp(90px, 10vw, 130px);
+}
+
+.team-contact-line {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--it-ff-body);
+  color: #525252;
+  display: block;
+  margin-bottom: 6px;
+
+  & strong {
+    font-weight: 700;
+    font-family: var(--it-ff-heading);
+    color: var(--it-common-black);
+  }
 }
 
 .team-slider-divider {
@@ -538,15 +578,20 @@
 
 .team-profile-meta {
   & .profile-name {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: clamp(22px, 2.2vw, 34px);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     color: var(--it-common-black);
-    margin-bottom: 3px;
+    margin-bottom: 5px;
+    line-height: 1.2;
   }
   & .profile-desig {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: clamp(12px, 1vw, 15px);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     color: var(--it-theme-1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 }
 
@@ -576,46 +621,13 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  height: 520px;
+  height: clamp(520px, 55vw, 650px);
   
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: opacity 0.4s ease-in-out;
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(15, 49, 58, 0.4) 0%, rgba(15, 49, 58, 0.1) 100%);
-    z-index: 1;
-    pointer-events: none;
-  }
-  
-  & .right-overlay-title {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    color: var(--it-common-white);
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 1.2;
-    z-index: 2;
-    
-    & span {
-      opacity: 0.75;
-    }
-    
-    @media #{$xs} {
-      font-size: 28px;
-      top: 20px;
-      left: 20px;
-    }
   }
 }
 
@@ -793,8 +805,8 @@
     padding: 6px 16px;
     border-radius: 4px;
     font-size: 13px;
-    font-weight: 700;
-    font-family: var(--it-ff-heading);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: inline-flex;
@@ -805,8 +817,8 @@
   
   & .solutions-title {
     font-size: 48px;
-    font-weight: 800;
-    font-family: var(--it-ff-heading);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     line-height: 1.2;
     color: var(--it-common-white);
     margin-bottom: 40px;
@@ -863,8 +875,8 @@
   & .card-title {
     color: var(--it-common-white);
     font-size: 22px;
-    font-weight: 700;
-    font-family: var(--it-ff-heading);
+    font-weight: 500;
+    font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
     line-height: 1.3;
   }
 }
@@ -873,6 +885,8 @@
   & .card-desc {
     color: rgba(255, 255, 255, 0.7);
     font-size: 15px;
+    font-family: 'Mona Sans', var(--it-ff-body), sans-serif;
+    font-weight: 500;
     line-height: 1.7;
     margin-bottom: 25px;
   }
@@ -887,8 +901,8 @@
       align-items: center;
       color: var(--it-common-white);
       font-size: 14px;
-      font-weight: 600;
-      font-family: var(--it-ff-heading);
+      font-weight: 500;
+      font-family: 'Mona Sans', var(--it-ff-heading), sans-serif;
       margin-bottom: 12px;
       
       &:last-child {

@@ -4,7 +4,7 @@ export interface ITeamDT {
   id: number;
   name: string;
   designation: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   email: string;
   phone: string;
   address: string;

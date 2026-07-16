@@ -92,7 +92,7 @@ const ServiceRelatedArea = () => {
                   {serviceDataTwo
                     .map((service) => (
                       <SwiperSlide key={service.id} className="swiper-slide">
-                        <ServiceItemTwo service={service} />
+                        <ServiceItemTwo service={service} vertical />
                       </SwiperSlide>
                     ))
                     .slice(0, 6)}

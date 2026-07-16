@@ -53,12 +53,17 @@ const AboutTeamSlider = () => {
           >
             <div className="team-slider-left-card">
               <div>
+                {/* Section overlay title — shown on the left card */}
+                <h3 className="team-section-title mb-10">
+                  Meet Our <span>Team Experts.</span>
+                </h3>
+
                 {/* Upper side: Name & Designation */}
                 <div className="team-profile-meta mb-15">
-                  <h4 className="profile-name" style={{ fontSize: '28px', fontWeight: '800', marginBottom: '5px' }}>
+                  <h4 className="profile-name">
                     {activeMember.name}
                   </h4>
-                  <span className="profile-desig" style={{ textTransform: 'uppercase', fontSize: '13px', fontWeight: '700', letterSpacing: '1px' }}>
+                  <span className="profile-desig">
                     {activeMember.designation}
                   </span>
                 </div>
@@ -75,7 +80,7 @@ const AboutTeamSlider = () => {
                   >
                     {teamData.map((member, index) => (
                       <SwiperSlide key={member.id} className="swiper-slide">
-                        <p className="team-slider-text" style={{ fontSize: '15px', color: '#525252', lineHeight: '1.7', fontWeight: '500', marginBottom: '0', minHeight: '80px' }}>
+                        <p className="team-slider-text">
                           {teamQuotes[index] || teamQuotes[0]}
                         </p>
                       </SwiperSlide>
@@ -121,12 +126,6 @@ const AboutTeamSlider = () => {
                 height={520}
                 className="w-100 h-100 object-fit-cover"
               />
-
-              {/* Title overlay */}
-              <h3 className="right-overlay-title">
-                Meet Our <br />
-                <span>Team Experts.</span>
-              </h3>
             </div>
           </div>
         </div>

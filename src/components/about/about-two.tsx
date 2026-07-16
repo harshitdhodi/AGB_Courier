@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { TabPanel, Tabs } from 'react-tabs';
 import AboutFunFactOne from './about-funfact/about-funfact-one';
-
-import aboutImg from '@/assets/img/about/about-2-1.jpg';
 
 const tabNames = [
   { id: 1, tabName: 'Mission' },

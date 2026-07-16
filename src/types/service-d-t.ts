@@ -7,7 +7,7 @@ export interface IServiceDT {
   icon?: React.ReactNode;
   title: string;
   description?: string;
-  detailsImage?: StaticImageData;
+  detailsImage?: StaticImageData | string;
   serviceCount?: string;
   btnText?: string;
   category?: string;

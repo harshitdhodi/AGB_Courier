@@ -1,4 +1,4 @@
-import { serviceDataTwo } from '@/data/service-data';
+import { serviceDataOne } from '@/data/service-data';
 import ServiceGridItem from './service-item/service-grid-item';
 
 const ServiceArea = () => {
@@ -6,7 +6,7 @@ const ServiceArea = () => {
     <div className="it-service-2-area pt-130 pb-100">
       <div className="container">
         <div className="row">
-          {serviceDataTwo.map((service, i) => (
+          {serviceDataOne.map((service, i) => (
             <div
               key={service.id}
               className="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 mb-30 wow animate__fadeInUp"

@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import mainImg from '@/assets/img/about/about-1-1.jpg';
 
 const AboutMissionVision = () => {
   return (

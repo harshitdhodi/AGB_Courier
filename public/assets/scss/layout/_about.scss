@@ -9,7 +9,7 @@
       margin-bottom: 50px;
     }
     & p {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 17px;
       color: #525252;
       @media #{$xl,$lg,$md} {
@@ -109,7 +109,7 @@
       margin-top: 30px;
     }
     & p {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 17px;
       margin-bottom: 0;
     }
@@ -158,7 +158,7 @@
             }
           }
           & button {
-            font-weight: 600;
+            font-weight: 500;
             font-size: 22px;
             padding: 0;
             position: relative;
@@ -204,7 +204,7 @@
     }
     &-content {
       & p {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 17px;
         line-height: 1.76;
         margin-bottom: 12px;
@@ -225,7 +225,7 @@
   }
   &-funfact {
     &-number {
-      font-weight: 700;
+      font-weight: 500;
       font-size: 55px;
       margin-bottom: 10px;
       color: var(--it-common-black);
@@ -387,12 +387,12 @@
   &-client {
     &-info {
       & h5 {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 30px;
         color: var(--it-common-black);
       }
       & span {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 17px;
         color: var(--it-theme-1);
       }
@@ -489,7 +489,7 @@
   }
   &-text {
     & p {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 17px;
       line-height: 1.76;
       margin-right: 80px;
@@ -629,7 +629,7 @@
 /* Large animated number */
 .it-about-counter-number {
   font-size: 52px;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1;
   color: var(--it-common-black);
   margin-bottom: 16px;
@@ -662,7 +662,7 @@
 /* Title */
 .it-about-counter-title {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--it-common-black);
   margin-bottom: 6px;
   line-height: 1.4;

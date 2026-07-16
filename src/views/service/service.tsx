@@ -15,8 +15,6 @@ import Breadcrumb from '@/components/bradcrumb/breadcrumb';
 import ServiceArea from '@/components/service/service-area';
 import FunFactOne from '@/components/funfact/funfact-one';
 import InformationOne from '@/components/information/information-one';
-import StepOne from '@/components/step/step-one';
-import BrandOne from '@/components/brand/brand-one';
 
 const ServiceMain = () => {
   // Enable Gsap ANimations

@@ -7,11 +7,12 @@ const FALLBACK_IMG = 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2
 
 interface ServiceItemProps {
   service: IServiceDT;
+  vertical?: boolean;
 }
 
-const ServiceItemTwo = ({ service }: ServiceItemProps) => {
+const ServiceItemTwo = ({ service, vertical = false }: ServiceItemProps) => {
   return (
-    <div className="svc-card">
+    <div className={`svc-card${vertical ? ' svc-card--vertical' : ''}`}>
 
       {/* ── 30% Image ─────────────────────────────── */}
       <div className="svc-card__img">

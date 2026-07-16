@@ -21,7 +21,7 @@ const socialData = [
 const FooterTwo = () => {
   return (
     <footer>
-      <div className="it-footer-wrap black-bg z-index-1">
+      <div className="it-footer-wrap black-bg  z-index-1">
         <Image
           className="it-footer-shape-2 image-height-auto"
           src={shapeImg}
@@ -34,7 +34,7 @@ const FooterTwo = () => {
         <Newsletter />
         {/* Newsletter Area */}
 
-        <div className="it-footer-area pt-140 mb-65">
+        <div className="it-footer-area pt-140 my-65">
           <div className="container">
             <div className="row">
               <div

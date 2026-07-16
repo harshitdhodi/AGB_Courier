@@ -7,7 +7,6 @@ import { LOADING_ANIMATION_TIMEOUT } from '@/utils/constants';
 import Header from '@/layouts/headers/header';
 import FooterTwo from '@/layouts/footers/footer-two';
 import Breadcrumb from '@/components/bradcrumb/breadcrumb';
-import BrandOne from '@/components/brand/brand-one';
 import NetworkMap from '@/components/network/network-map';
 
 const NetworksMain = () => {

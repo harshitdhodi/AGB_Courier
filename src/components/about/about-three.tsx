@@ -3,8 +3,6 @@ import Link from 'next/link';
 import AboutFunFactOne from './about-funfact/about-funfact-one';
 
 import shapeImg from '@/assets/img/shape/about-3.png';
-import aboutImg1 from '@/assets/img/about/about-3-1.jpg';
-import aboutImg2 from '@/assets/img/about/about-3-2.jpg';
 
 const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
   return (
