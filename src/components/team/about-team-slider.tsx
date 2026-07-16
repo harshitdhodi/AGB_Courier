@@ -34,7 +34,7 @@ const AboutTeamSlider = () => {
     },
   };
 
-  const handleSlideChange = (swiper: any) => {
+  const handleSlideChange = (swiper: { realIndex: number }) => {
     setActiveIndex(swiper.realIndex);
   };
 
