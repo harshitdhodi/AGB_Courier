@@ -15,15 +15,7 @@ const ChooseTwo = () => {
           <div className="col-lg-6 mb-50 mb-lg-0">
             <div className="it-choose-right">
               <div className="it-section-title-box pb-20">
-                <span
-                  className="badge text-orange bg-white px-3 py-2 rounded-2 mb-25 shadow-sm"
-                  style={{
-                    color: '#e55b13',
-                    border: '1px solid #f0f0f0',
-                    fontSize: '14px',
-                    fontWeight: 600,
-                  }}
-                >
+                <span className="it-section-subtitle">
                   Why choose us Togeto
                 </span>
                 <h4
@@ -35,7 +27,7 @@ const ChooseTwo = () => {
                   }}
                 >
                   Why Choose Us for <br />
-                  Your <span style={{ color: '#e55b13' }}>Logistics</span> Needs?
+                  Your <span>Logistics</span> Needs?
                 </h4>
                 <p className="text-muted mb-40" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                   Logistics ensures the efficient movement of goods, managing, transportation,
@@ -95,11 +87,11 @@ const ChooseTwo = () => {
               className="position-relative d-inline-block w-100"
               style={{ paddingLeft: '40px', paddingTop: '40px' }}
             >
-              {/* Solid Orange Background Offset Panel */}
+              {/* Solid Theme-Friendly Background Offset Panel */}
               <div
                 className="position-absolute"
                 style={{
-                  backgroundColor: '#e55b13',
+                  backgroundColor: 'var(--it-theme-1)',
                   top: '0px',
                   left: '0px',
                   width: '85%',
@@ -112,7 +104,7 @@ const ChooseTwo = () => {
               <div className="position-relative" style={{ zIndex: 2 }}>
                 <Image
                   className="w-100 h-auto object-fit-cover shadow-lg"
-                  src={chooseImg1}
+                  src='https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001'
                   alt="choose-img"
                   width={550}
                   height={600}

@@ -11,7 +11,7 @@ const Breadcrumb = ({ title, subtitle }: BreadcrumbProps) => {
     <div
       className="it-breadcrumb-area it-breadcrumb-overlay it-breadcrumb-ptb z-index-1 fix p-relative"
       style={{
-        backgroundImage: `url('/assets/img/breadcrumb/breadcrumb.jpg')`,
+        backgroundImage: `url('https://ik.imagekit.io/mikbqwyy0/4723a5e3-690a-4e91-8c14-8d57896f109c.png?updatedAt=1784128841887')`,
       }}
     >
       <div className="container">

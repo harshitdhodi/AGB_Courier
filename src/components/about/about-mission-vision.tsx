@@ -17,7 +17,7 @@ const AboutMissionVision = () => {
           >
             <div className="mission-vision-img-wrap">
               <Image
-                src={mainImg}
+                src='https://ik.imagekit.io/mikbqwyy0/f091929f-2782-458e-8731-bbb29c3135e8.png?updatedAt=1784132086631'
                 alt="About Team Meeting"
                 width={600}
                 height={550}

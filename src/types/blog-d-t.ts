@@ -2,7 +2,7 @@ import { StaticImageData } from 'next/image';
 
 export interface IBlogDT {
   id: number;
-  image?: StaticImageData;
+  image?: StaticImageData | string;
   images?: StaticImageData[];
   title: string;
   publishedDate?: string;
@@ -10,7 +10,7 @@ export interface IBlogDT {
   blogAuthor?: string;
   blogText?: string;
   commentCount?: string;
-  detailsImage?: StaticImageData;
+  detailsImage?: StaticImageData | string;
   description?: string;
   hasModalVideo?: boolean;
   btnText?: string;

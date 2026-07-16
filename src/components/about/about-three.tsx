@@ -6,7 +6,7 @@ import shapeImg from '@/assets/img/shape/about-3.png';
 import aboutImg1 from '@/assets/img/about/about-3-1.jpg';
 import aboutImg2 from '@/assets/img/about/about-3-2.jpg';
 
-const AboutThree = () => {
+const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
   return (
     <div
       id="about"
@@ -28,11 +28,11 @@ const AboutThree = () => {
               data-wow-delay="0.1"
             >
               <Image
-                className="image-height-auto"
-                src={aboutImg1}
+                src="https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png?updatedAt=1784132086668"
                 alt="about-img"
                 width={515}
-                height={675}
+                height={850}
+                style={{ width: '100%', height: '620px', objectFit: 'cover' }}
               />
             </div>
           </div>
@@ -65,16 +65,18 @@ const AboutThree = () => {
                       can help you set a new standard of excellence
                     </p>
                   </div>
-                  <div
-                    className="it-fade-anim"
-                    data-fade-from="top"
-                    data-ease="bounce"
-                    data-delay=".5"
-                  >
-                    <Link className="it-btn-black" href="/about">
-                      <span>More About Us</span>
-                    </Link>
-                  </div>
+                  {!hideButton && (
+                    <div
+                      className="it-fade-anim"
+                      data-fade-from="top"
+                      data-ease="bounce"
+                      data-delay=".5"
+                    >
+                      <Link className="it-btn-black" href="/about">
+                        <span>More About Us</span>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
               <div
@@ -84,11 +86,11 @@ const AboutThree = () => {
               >
                 <div className="it-about-3-thumb shine-effect">
                   <Image
-                    className="image-height-auto"
-                    src={aboutImg2}
+                    src='https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001'
                     alt="about-img"
                     width={303}
-                    height={384}
+                    height={440}
+                    style={{ width: '100%', height: '320px', objectFit: 'cover' }}
                   />
                 </div>
               </div>

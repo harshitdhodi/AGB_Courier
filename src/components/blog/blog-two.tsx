@@ -81,10 +81,10 @@ const BlogTwo = () => {
           transition: color 0.2s ease;
         }
         .blog-title-link:hover {
-          color: #e55b13 !important;
+          color: var(--it-theme-1) !important;
         }
         .read-more-btn:hover .arrow-circle {
-          background-color: #e55b13 !important;
+          background-color: var(--it-theme-1) !important;
         }
         @media (max-width: 575px) {
           .blog-horizontal-card {
@@ -136,9 +136,9 @@ const BlogTwo = () => {
                 <div className="blog-large-card bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column" style={{ border: 'none' }}>
                   {/* Image container */}
                   <div className="position-relative w-100 mb-4" style={{ height: '320px' }}>
-                    {featuredBlog.image && (
+                    {featuredBlog.detailsImage && (
                       <Image
-                        src={featuredBlog.image}
+                        src={featuredBlog.detailsImage}
                         alt={featuredBlog.title}
                         className="w-100 h-100 object-fit-cover rounded-4"
                         width={600}
@@ -237,9 +237,9 @@ const BlogTwo = () => {
                         className="position-relative flex-shrink-0"
                         style={{ width: '200px', height: '150px' }}
                       >
-                        {blog.image && (
+                        {blog.detailsImage && (
                           <Image
-                            src={blog.image}
+                            src={blog.detailsImage}
                             alt={blog.title}
                             className="w-100 h-100 object-fit-cover rounded-4"
                             width={200}
@@ -295,6 +295,9 @@ const BlogTwo = () => {
                               {blog.title}
                             </Link>
                           </h4>
+                           <p className="text-muted mb-4" style={{ fontSize: '14px', lineHeight: '1.6' }}>
+                    {featuredBlog.description}
+                  </p>
                         </div>
 
                         {/* Read More */}

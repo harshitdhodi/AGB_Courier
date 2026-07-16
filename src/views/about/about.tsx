@@ -37,7 +37,7 @@ const AboutMain = () => {
 
       <main>
         <Breadcrumb title="About Us" subtitle="About" />
-        <AboutThree />
+        <AboutThree hideButton />
         <AboutMissionVision />
         <AboutSolutions />
         <AboutTeamSlider />

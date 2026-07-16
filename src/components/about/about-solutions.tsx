@@ -11,7 +11,7 @@ const AboutSolutions = () => {
           <div className="col-lg-5 col-md-12 sticky-solutions-column">
             <div className="sticky-solutions-left">
               <span className="solutions-tag">Our Solutions</span>
-              <h3 className="solutions-title">
+              <h3 className="solutions-title ">
                 Solutions to Transform Your <span>Business.</span>
               </h3>
               <Link href="/service" className="it-btn-orange">
