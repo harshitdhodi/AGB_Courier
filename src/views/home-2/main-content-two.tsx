@@ -6,18 +6,18 @@ import ChooseTwo from '@/components/choose/choose-two';
 import HomeFaq from '@/components/faq/home-faq';
 import HomeCta from '@/components/cta/home-cta';
 
-const MainContentTwo = () => {
+const MainContentTwo = ({ data }: { data?: any }) => {
   return (
     <main>
-      <HeroSliderOne />
-      <AboutTwo />
-      <ServiceTwo />
-      <ChooseTwo />
+      <HeroSliderOne slides={data?.slides} />
+      <AboutTwo about={data?.about} tabs={data?.tabs} counters={data?.counters} />
+      <ServiceTwo services={data?.services} />
+      <ChooseTwo whyChoose={data?.whyChoose} features={data?.features} />
       {/* <StepOne /> */}
-      <HomeFaq />
-      <HomeCta />
+      <HomeFaq faqs={data?.faqs} />
+      <HomeCta cta={data?.cta} />
       {/* <ContactOne /> */}
-      <BlogTwo />
+      <BlogTwo blogs={data?.blogs} />
     </main>
   );
 };

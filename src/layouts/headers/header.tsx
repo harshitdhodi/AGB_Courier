@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux-hooks';
@@ -30,6 +31,19 @@ const Header = ({
   const dispatch = useAppDispatch();
   const { isVisible } = useHeaderScroll(); // Custom hook for showing sticky header
   const isOnePage = useAppSelector(selectIsOnePage); // Selector for getting the state of the header
+  const [siteSettings, setSiteSettings] = useState<any>(null);
+
+  useEffect(() => {
+    const apiBaseUrl = typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001');
+    fetch(`${apiBaseUrl}/api/settings/site`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data) setSiteSettings(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  const logoSrc = siteSettings?.logoUrl || headerLogo;
 
   // Handler for opening Off Canvas
   const handleOffCanvasOpen = () => {
@@ -68,10 +82,11 @@ const Header = ({
                     <Link href="/">
                       <Image
                         className="image-height-auto"
-                        src={headerLogo}
+                        src={logoSrc}
                         alt="Togeto"
                         width={90}
                         height={40}
+                        unoptimized={true}
                       />
                     </Link>
                   </div>

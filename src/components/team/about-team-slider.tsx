@@ -16,12 +16,50 @@ const teamQuotes = [
   "Efficient routes, on-time arrivals. We make sure our transport trucks and planes depart and deliver without delay, navigating global schedules with expert precision."
 ];
 
-const AboutTeamSlider = () => {
+interface TeamMember {
+  id: number;
+  name: string;
+  designation: string;
+  imageUrl: string;
+  facebookUrl?: string;
+  twitterUrl?: string;
+  linkedinUrl?: string;
+}
+
+interface AboutTeamSliderProps {
+  team?: TeamMember[];
+}
+
+const AboutTeamSlider = ({ team = [] }: AboutTeamSliderProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const displayTeam = team.length > 0
+    ? team.map(member => ({
+        id: member.id,
+        name: member.name,
+        designation: member.designation,
+        image: member.imageUrl,
+        facebook: member.facebookUrl || '#',
+        twitter: member.twitterUrl || '#',
+        linkedin: member.linkedinUrl || '#',
+        phone: '+1 (555) 019-2834',
+        email: `${member.name.toLowerCase().replace(/\s+/g, '')}@agbcourier.com`
+      }))
+    : teamData.map((m, idx) => ({
+        id: m.id,
+        name: m.name,
+        designation: m.designation,
+        image: m.image,
+        facebook: '#',
+        twitter: '#',
+        linkedin: '#',
+        phone: m.phone,
+        email: m.email
+      }));
 
   const sliderOptions: SwiperOptions = {
     speed: 1000,
-    loop: true,
+    loop: displayTeam.length > 1,
     slidesPerView: 1,
     spaceBetween: 30,
     autoplay: {
@@ -39,7 +77,7 @@ const AboutTeamSlider = () => {
   };
 
   // Get active team member based on state index
-  const activeMember = teamData[activeIndex] || teamData[0];
+  const activeMember = displayTeam[activeIndex] || displayTeam[0];
 
   return (
     <div className="it-team-slider-section">
@@ -61,10 +99,10 @@ const AboutTeamSlider = () => {
                 {/* Upper side: Name & Designation */}
                 <div className="team-profile-meta mb-15">
                   <h4 className="profile-name">
-                    {activeMember.name}
+                    {activeMember?.name}
                   </h4>
                   <span className="profile-desig">
-                    {activeMember.designation}
+                    {activeMember?.designation}
                   </span>
                 </div>
 
@@ -78,35 +116,33 @@ const AboutTeamSlider = () => {
                     onSlideChange={handleSlideChange}
                     className="swiper-wrapper"
                   >
-                    {teamData.map((member, index) => (
+                    {displayTeam.map((member, index) => (
                       <SwiperSlide key={member.id} className="swiper-slide">
                         <p className="team-slider-text">
-                          {teamQuotes[index] || teamQuotes[0]}
+                          {teamQuotes[index % teamQuotes.length]}
                         </p>
                       </SwiperSlide>
                     ))}
                   </Swiper>
                 </div>
-                   {/* Card Footer: Contact details and Dot navigation */}
-              <div>
-                <div className="team-slider-divider" style={{ margin: '25px 0 20px 0' }}></div>
-                <div className="team-slider-profile">
-                  <div className="team-profile-meta">
-                    <span className="small text-muted d-block">
-                      <strong>Phone:</strong> {activeMember.phone}
-                    </span>
-                    <span className="small text-muted d-block">
-                      <strong>Email:</strong> {activeMember.email}
-                    </span>
+                {/* Card Footer: Contact details and Dot navigation */}
+                <div>
+                  <div className="team-slider-divider" style={{ margin: '25px 0 20px 0' }}></div>
+                  <div className="team-slider-profile">
+                    <div className="team-profile-meta">
+                      <span className="small text-muted d-block">
+                        <strong>Phone:</strong> {activeMember?.phone}
+                      </span>
+                      <span className="small text-muted d-block">
+                        <strong>Email:</strong> {activeMember?.email}
+                      </span>
+                    </div>
                   </div>
-
                 </div>
               </div>
-              </div>
 
-           
-                  {/* Swiper dots page indicators */}
-                  <div className="team-slider-dots"></div>
+              {/* Swiper dots page indicators */}
+              <div className="team-slider-dots"></div>
             </div>
           </div>
 
@@ -118,14 +154,14 @@ const AboutTeamSlider = () => {
           >
             <div className="team-slider-right-img">
               {/* Dynamic Image with smooth transition */}
-              <Image
-                key={activeMember.id}
-                src={activeMember.image}
-                alt={activeMember.name}
-                width={600}
-                height={520}
-                className="w-100 h-100 object-fit-cover"
-              />
+              {activeMember?.image && (
+                <img
+                  src={typeof activeMember.image === 'string' ? activeMember.image : activeMember.image.src}
+                  alt={activeMember.name}
+                  className="w-100 h-100 object-fit-cover"
+                  style={{ maxHeight: '520px', borderRadius: '8px' }}
+                />
+              )}
             </div>
           </div>
         </div>

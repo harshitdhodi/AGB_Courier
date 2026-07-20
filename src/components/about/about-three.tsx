@@ -4,7 +4,24 @@ import AboutFunFactOne from './about-funfact/about-funfact-one';
 
 import shapeImg from '@/assets/img/shape/about-3.png';
 
-const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
+const defaultAbout = {
+  subtitle: 'More About us',
+  title: 'Creating Long-Term Value For Stakeholder.',
+  description1: 'We are a global technology provider who assists businesses to accelerate their digital transformation journey while achieving efficiency, scalability, and lower cost of ownership.',
+  description2: 'Whatever your ambition may be from embracing new digital capabilities to reimagining how your business operates, we can help you set a new standard of excellence',
+  imageUrl1: 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png?updatedAt=1784132086668',
+  imageUrl2: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001',
+};
+
+interface AboutThreeProps {
+  hideButton?: boolean;
+  about?: any;
+  counters?: any[];
+}
+
+const AboutThree = ({ hideButton = false, about, counters }: AboutThreeProps) => {
+  const currentAbout = about || defaultAbout;
+
   return (
     <div
       id="about"
@@ -26,7 +43,7 @@ const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
               data-wow-delay="0.1"
             >
               <Image
-                src="https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png?updatedAt=1784132086668"
+                src={currentAbout.imageUrl1 || 'https://ik.imagekit.io/mikbqwyy0/a3043f10-64ae-4b82-a007-b0a31ee0ebd9.png?updatedAt=1784132086668'}
                 alt="about-img"
                 width={515}
                 height={850}
@@ -40,10 +57,10 @@ const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
                 <div className="it-about-left">
                   <div className="it-section-title-box">
                     <span className="it-section-subtitle it-split-text it-split-in-right">
-                      More About us
+                      {currentAbout.subtitle || 'More About us'}
                     </span>
                     <h4 className="it-section-title pb-20 it-split-text it-split-in-right">
-                      Creating Long-Term Value For Stakeholder.
+                      {currentAbout.title || 'Creating Long-Term Value For Stakeholder.'}
                     </h4>
                   </div>
                   <div
@@ -52,15 +69,10 @@ const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
                     data-wow-delay=".5s"
                   >
                     <p className="mb-15">
-                      We are a global technology provider who assists businesses
-                      to accelerate their digital transformation journey while
-                      achieving efficiency, scalability, and lower cost of
-                      ownership.
+                      {currentAbout.description1 || currentAbout.description || 'We are a global technology provider who assists businesses to accelerate their digital transformation journey while achieving efficiency, scalability, and lower cost of ownership.'}
                     </p>
                     <p className="mb-30">
-                      Whatever your ambition may be from embracing new digital
-                      capabilities to reimagining how your business operates, we
-                      can help you set a new standard of excellence
+                      {currentAbout.description2 || 'Whatever your ambition may be from embracing new digital capabilities to reimagining how your business operates, we can help you set a new standard of excellence'}
                     </p>
                   </div>
                   {!hideButton && (
@@ -84,7 +96,7 @@ const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
               >
                 <div className="it-about-3-thumb shine-effect">
                   <Image
-                    src='https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001'
+                    src={currentAbout.imageUrl2 || currentAbout.imageUrl || 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001'}
                     alt="about-img"
                     width={303}
                     height={440}
@@ -95,7 +107,7 @@ const AboutThree = ({ hideButton = false }: { hideButton?: boolean }) => {
             </div>
             <div className="row">
               <div className="col-12">
-                <AboutFunFactOne itemClass=" mt-10" />
+                <AboutFunFactOne itemClass=" mt-10" counters={counters} />
               </div>
             </div>
           </div>

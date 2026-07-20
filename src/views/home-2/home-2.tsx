@@ -13,7 +13,7 @@ import Header from '@/layouts/headers/header';
 import MainContentTwo from './main-content-two';
 import FooterTwo from '@/layouts/footers/footer-two';
 
-const HomeTwoMain = () => {
+const HomeTwoMain = ({ data }: { data?: any }) => {
   const dispatch = useAppDispatch();
 
   // Enable Gsap ANimations
@@ -38,7 +38,7 @@ const HomeTwoMain = () => {
     <Wrapper>
       <Header />
 
-      <MainContentTwo />
+      <MainContentTwo data={data} />
 
       <FooterTwo />
     </Wrapper>

@@ -7,7 +7,13 @@ import ServiceItemTwo from './service-item/service-item-two';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ServiceTwo = () => {
+interface ServiceTwoProps {
+  services?: any[];
+}
+
+const ServiceTwo = ({ services }: ServiceTwoProps) => {
+  const data = services && services.length > 0 ? services : serviceDataTwo;
+
   useGSAP(() => {
     const cards = gsap.utils.toArray<HTMLElement>('.service-animation-item');
     cards.forEach((card) => {
@@ -22,20 +28,20 @@ const ServiceTwo = () => {
           y: 0,
           duration: 0.8,
           ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              end: 'bottom 15%',
-              toggleActions: 'play reverse play reverse',
-            },
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            end: 'bottom 15%',
+            toggleActions: 'play reverse play reverse',
+          },
         }
       );
     });
-  }, []);
+  }, [data]);
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         #service .it-section-title-box {
           text-align: left !important;
         }
@@ -47,7 +53,7 @@ const ServiceTwo = () => {
           display: inline-block !important;
           width: fit-content !important;
         }
-      `}</style>
+      ` }} />
       <div id="service" className="it-service-2-area pt-130 pb-130 gray-bg">
         <div className="container">
           <div className="row align-items-end mb-65">
@@ -82,7 +88,7 @@ const ServiceTwo = () => {
             </div>
           </div>
           <div className="row service-cards-container">
-            {serviceDataTwo
+            {data
               .map((service) => (
                 <div
                   key={service.id}

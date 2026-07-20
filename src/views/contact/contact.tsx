@@ -10,7 +10,7 @@ import Breadcrumb from '@/components/bradcrumb/breadcrumb';
 import ContactArea from '@/components/contact/contact-area';
 import MapArea from '@/components/map/map-area';
 
-const ContactMain = () => {
+const ContactMain = ({ data }: { data?: any }) => {
   // GSAP animations
   useGSAP(() => {
     const timer = setTimeout(() => {
@@ -25,8 +25,8 @@ const ContactMain = () => {
 
       <main>
         <Breadcrumb title="Contact" />
-        <ContactArea />
-        <MapArea />
+        <ContactArea contact={data?.contact} />
+        <MapArea contact={data?.contact} />
       </main>
 
       <FooterTwo />

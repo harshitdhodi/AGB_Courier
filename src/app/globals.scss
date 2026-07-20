@@ -3,14 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Mona Sans — variable font from GitHub */
-@font-face {
-  font-family: 'Mona Sans';
-  src: url('https://github.githubassets.com/assets/Mona-Sans.woff2') format('woff2 supports variations'),
-       url('https://github.githubassets.com/assets/Mona-Sans.woff2') format('woff2');
-  font-weight: 200 900;
-  font-style: normal;
-  font-display: swap;
+:root {
+  --font-mona-sans: 'Mona Sans', sans-serif;
+  --it-ff-body: var(--font-mona-sans);
+  --it-ff-heading: var(--font-mona-sans);
 }
 
 @import 'bootstrap/scss/bootstrap';

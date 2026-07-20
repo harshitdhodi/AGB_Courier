@@ -29,7 +29,13 @@ const getDayAndMonth = (dateString?: string) => {
   return { day, month };
 };
 
-const BlogTwo = () => {
+interface BlogTwoProps {
+  blogs?: any[];
+}
+
+const BlogTwo = ({ blogs }: BlogTwoProps) => {
+  const data = blogs && blogs.length > 0 ? blogs : blogDataOne;
+
   useGSAP(() => {
     const cards = gsap.utils.toArray<HTMLElement>('.blog-animation-item');
     cards.forEach((card) => {
@@ -53,16 +59,15 @@ const BlogTwo = () => {
         }
       );
     });
-  }, []);
+  }, [data]);
 
-  const featuredBlog = blogDataOne[0];
-  const sideBlogs = blogDataOne.slice(1, 3);
-
+  const featuredBlog = data[0];
+  const sideBlogs = data.slice(1, 3);
   const featDate = getDayAndMonth(featuredBlog?.publishedDate);
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .blog-large-card {
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -96,7 +101,7 @@ const BlogTwo = () => {
             height: 200px !important;
           }
         }
-      `}</style>
+      ` }} />
       <div id="blog" className="it-blog-area pt-130 pb-130 gray-bg">
         <div className="container">
           {/* Header */}
@@ -143,6 +148,7 @@ const BlogTwo = () => {
                         className="w-100 h-100 object-fit-cover rounded-4"
                         width={600}
                         height={320}
+                        unoptimized={true}
                       />
                     )}
                     {/* Date badge overlay */}
@@ -159,172 +165,160 @@ const BlogTwo = () => {
                         zIndex: 2,
                       }}
                     >
-                      <span className="fw-bold" style={{ fontSize: '20px', lineHeight: '1.1' }}>
-                        {featDate.day}
-                      </span>
-                      <span className="text-uppercase fw-semibold" style={{ fontSize: '11px' }}>
-                        {featDate.month}
-                      </span>
+                      <span className="fw-bold" style={{ fontSize: '18px', lineHeight: '1.2' }}>{featDate.day}</span>
+                      <span className="text-uppercase" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>{featDate.month}</span>
                     </div>
                   </div>
 
-                  {/* Meta */}
-                  <div className="d-flex align-items-center gap-3 mb-3">
-                    <span
-                      className="badge border text-secondary bg-transparent px-3 py-1.5 rounded-pill fw-semibold"
-                      style={{ fontSize: '12px', borderColor: '#ddd' }}
-                    >
-                      {featuredBlog.category || 'Corporate'}
-                    </span>
-                    <span className="text-muted small">
-                      By <strong className="text-dark">{featuredBlog.blogAuthor || 'Togeto Team'}</strong>
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="fw-bold mb-3 flex-grow-1">
-                    <Link
-                      href={`/blog-details/${featuredBlog.id}`}
-                      className="blog-title-link text-dark text-decoration-none"
-                      style={{ fontSize: '24px', lineHeight: '1.3', fontWeight: 700 }}
-                    >
-                      {featuredBlog.title}
-                    </Link>
-                  </h3>
-
-                  {/* Excerpt */}
-                  <p className="text-muted mb-4" style={{ fontSize: '14px', lineHeight: '1.6' }}>
-                    {featuredBlog.description}
-                  </p>
-
-                  {/* Read More */}
-                  <div>
-                    <Link
-                      href={`/blog-details/${featuredBlog.id}`}
-                      className="read-more-btn d-inline-flex align-items-center text-dark text-decoration-none fw-semibold"
-                    >
-                      <span style={{ fontSize: '15px' }}>Read More</span>
-                      <span
-                        className="arrow-circle ms-2 d-inline-flex align-items-center justify-content-center bg-dark text-white rounded-circle"
-                        style={{
-                          width: '28px',
-                          height: '28px',
-                          padding: '6px',
-                          transition: 'background-color 0.2s ease',
-                        }}
-                      >
-                        <RightArrowUpTwo />
+                  {/* Card Body */}
+                  <div className="d-flex flex-column flex-grow-1">
+                    {/* Meta info */}
+                    <div className="d-flex align-items-center gap-3 mb-3 text-muted" style={{ fontSize: '13px' }}>
+                      <span className="d-flex align-items-center gap-1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        By {featuredBlog.blogAuthor}
                       </span>
-                    </Link>
+                      <span>•</span>
+                      <span className="d-flex align-items-center gap-1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        {featuredBlog.commentCount || 0} Comments
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h5 className="mb-3" style={{ fontSize: '22px', fontWeight: '700', lineHeight: '1.4' }}>
+                      <Link href={`/blog-details-left-sidebar?id=${featuredBlog.id}`} className="blog-title-link text-dark text-decoration-none">
+                        {featuredBlog.title}
+                      </Link>
+                    </h5>
+
+                    {/* Excerpt */}
+                    <p className="text-muted mb-4" style={{ fontSize: '14.5px', lineHeight: '1.6' }}>
+                      {featuredBlog.description}
+                    </p>
+
+                    {/* Read More button */}
+                    <div className="mt-auto">
+                      <Link 
+                        href={`/blog-details-left-sidebar?id=${featuredBlog.id}`} 
+                        className="read-more-btn text-[#0077b6] text-decoration-none d-inline-flex align-items-center gap-2 fw-semibold"
+                        style={{ fontSize: '14px' }}
+                      >
+                        {featuredBlog.btnText || 'Read More'}
+                        <div 
+                          className="arrow-circle d-flex align-items-center justify-content-center text-white"
+                          style={{
+                            width: '28px',
+                            height: '28px',
+                            borderRadius: '50%',
+                            backgroundColor: '#0f766e',
+                            transition: 'background-color 0.2s ease',
+                          }}
+                        >
+                          <RightArrowUpTwo />
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Right stacked blogs */}
-            <div className="col-lg-6 d-flex flex-column gap-4">
-              {sideBlogs.map((blog) => {
-                const bDate = getDayAndMonth(blog.publishedDate);
-                return (
-                  <div
-                    key={blog.id}
-                    className="blog-animation-item flex-grow-1"
-                    style={{ opacity: 0 }}
-                  >
-                    <div className="blog-horizontal-card bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column flex-sm-row gap-4" style={{ border: 'none' }}>
-                      {/* Left image wrapper */}
-                      <div
-                        className="position-relative flex-shrink-0"
-                        style={{ width: '200px', height: '150px' }}
+            {/* Right side blogs column */}
+            <div className="col-lg-6">
+              <div className="d-flex flex-column gap-4 h-100">
+                {sideBlogs.map((blog, idx) => {
+                  const dateInfo = getDayAndMonth(blog.publishedDate);
+                  return (
+                    <div 
+                      key={blog.id || idx} 
+                      className="blog-animation-item flex-grow-1" 
+                      style={{ opacity: 0 }}
+                    >
+                      <div 
+                        className="blog-horizontal-card bg-white p-4 rounded-4 shadow-sm h-100 d-flex gap-4 align-items-center"
+                        style={{ border: 'none' }}
                       >
-                        {blog.detailsImage && (
-                          <Image
-                            src={blog.detailsImage}
-                            alt={blog.title}
-                            className="w-100 h-100 object-fit-cover rounded-4"
-                            width={200}
-                            height={150}
-                          />
-                        )}
-                        {/* Date badge overlay */}
-                        <div
-                          className="position-absolute d-flex flex-column align-items-center justify-content-center text-white"
-                          style={{
-                            bottom: '10px',
-                            right: '10px',
-                            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                            backdropFilter: 'blur(4px)',
-                            borderRadius: '8px',
-                            width: '48px',
-                            height: '48px',
-                            zIndex: 2,
-                          }}
-                        >
-                          <span className="fw-bold" style={{ fontSize: '16px', lineHeight: '1.1' }}>
-                            {bDate.day}
-                          </span>
-                          <span className="text-uppercase fw-semibold" style={{ fontSize: '9px' }}>
-                            {bDate.month}
-                          </span>
+                        {/* Image wrapper */}
+                        <div className="position-relative flex-shrink-0" style={{ width: '180px', height: '150px' }}>
+                          {blog.image && (
+                            <Image
+                              src={blog.image}
+                              alt={blog.title}
+                              className="w-100 h-100 object-fit-cover rounded-4"
+                              width={180}
+                              height={150}
+                              unoptimized={true}
+                            />
+                          )}
+                          {/* Small date badge */}
+                          <div
+                            className="position-absolute d-flex flex-column align-items-center justify-content-center text-white"
+                            style={{
+                              top: '10px',
+                              left: '10px',
+                              backgroundColor: 'rgba(0,0,0,0.6)',
+                              backdropFilter: 'blur(4px)',
+                              borderRadius: '6px',
+                              width: '44px',
+                              height: '44px',
+                            }}
+                          >
+                            <span className="fw-bold" style={{ fontSize: '14px', lineHeight: '1.2' }}>{dateInfo.day}</span>
+                            <span className="text-uppercase" style={{ fontSize: '9px' }}>{dateInfo.month}</span>
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Right content details */}
-                      <div className="d-flex flex-column justify-content-between flex-grow-1">
-                        <div>
+                        {/* Text Content */}
+                        <div className="d-flex flex-column h-100 justify-content-center">
                           {/* Meta */}
-                          <div className="d-flex align-items-center gap-3 mb-2.5">
-                            <span
-                              className="badge border text-secondary bg-transparent px-3 py-1 rounded-pill fw-semibold"
-                              style={{ fontSize: '11px', borderColor: '#ddd' }}
-                            >
-                              {blog.category || 'Business'}
+                          <div className="d-flex align-items-center gap-3 mb-2 text-muted" style={{ fontSize: '12px' }}>
+                            <span className="d-flex align-items-center gap-1">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                              By {blog.blogAuthor}
                             </span>
-                            <span className="text-muted small">
-                              By <strong className="text-dark">{blog.blogAuthor || 'Togeto Team'}</strong>
+                            <span>•</span>
+                            <span className="d-flex align-items-center gap-1">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                              {blog.commentCount || 0}
                             </span>
                           </div>
 
                           {/* Title */}
-                          <h4 className="fw-bold mb-3">
-                            <Link
-                              href={`/blog-details/${blog.id}`}
-                              className="blog-title-link text-dark text-decoration-none"
-                              style={{ fontSize: '18px', lineHeight: '1.3', fontWeight: 700 }}
-                            >
+                          <h6 className="mb-2" style={{ fontSize: '17px', fontWeight: '700', lineHeight: '1.4' }}>
+                            <Link href={`/blog-details-left-sidebar?id=${blog.id}`} className="blog-title-link text-dark text-decoration-none">
                               {blog.title}
                             </Link>
-                          </h4>
-                           <p className="text-muted mb-4" style={{ fontSize: '14px', lineHeight: '1.6' }}>
-                    {featuredBlog.description}
-                  </p>
-                        </div>
+                          </h6>
 
-                        {/* Read More */}
-                        <div>
-                          <Link
-                            href={`/blog-details/${blog.id}`}
-                            className="read-more-btn d-inline-flex align-items-center text-dark text-decoration-none fw-semibold"
-                          >
-                            <span style={{ fontSize: '14px' }}>Read More</span>
-                            <span
-                              className="arrow-circle ms-2 d-inline-flex align-items-center justify-content-center bg-dark text-white rounded-circle"
-                              style={{
-                                width: '28px',
-                                height: '28px',
-                                padding: '6px',
-                                transition: 'background-color 0.2s ease',
-                              }}
+                          {/* Read More */}
+                          <div>
+                            <Link 
+                              href={`/blog-details-left-sidebar?id=${blog.id}`} 
+                              className="read-more-btn text-[#0077b6] text-decoration-none d-inline-flex align-items-center gap-2 fw-semibold"
+                              style={{ fontSize: '13px' }}
                             >
-                              <RightArrowUpTwo />
-                            </span>
-                          </Link>
+                              {blog.btnText || 'Read More'}
+                              <div 
+                                className="arrow-circle d-flex align-items-center justify-content-center text-white"
+                                style={{
+                                  width: '24px',
+                                  height: '24px',
+                                  borderRadius: '50%',
+                                  backgroundColor: '#0f766e',
+                                  transition: 'background-color 0.2s ease',
+                                }}
+                              >
+                                <RightArrowUpTwo />
+                              </div>
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

@@ -3,7 +3,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const AboutMissionVision = () => {
+interface AboutMissionVisionProps {
+  tabs?: any[];
+}
+
+const AboutMissionVision = ({ tabs }: AboutMissionVisionProps) => {
+  const missionTab = tabs?.find(t => t.tabName.toLowerCase() === 'mission');
+  const visionTab = tabs?.find(t => t.tabName.toLowerCase() === 'vision');
+
+  const missionText = missionTab ? missionTab.content : "Our mission is to empower businesses through innovative, best-in-class logistics and transport solutions and exceptional customer service.";
+  const visionText = visionTab ? visionTab.content : "Our vision is to become a global leader in providing transformative supply chain management and business solutions.";
+
   return (
     <div className="it-mission-vision-section">
       <div className="container">
@@ -23,7 +33,7 @@ const AboutMissionVision = () => {
                 className="w-100 object-fit-cover"
                 style={{ height: '750px' }}
               />
-                </div>
+            </div>
           </div>
 
           {/* Right Column: Mission/Vision Content details */}
@@ -51,7 +61,7 @@ const AboutMissionVision = () => {
                 <div className="mission-vision-card">
                   <h4 className="card-title">Our Mission</h4>
                   <p className="card-text">
-                    Our mission is to empower businesses through innovative, best-in-class logistics and transport solutions and exceptional customer service.
+                    {missionText}
                   </p>
                   <ul className="card-list">
                     <li>
@@ -74,7 +84,7 @@ const AboutMissionVision = () => {
                 <div className="mission-vision-card">
                   <h4 className="card-title">Our Vision</h4>
                   <p className="card-text">
-                    Our vision is to become a global leader in providing transformative supply chain management and business solutions.
+                    {visionText}
                   </p>
                   <ul className="card-list">
                     <li>

@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Copyright from '@/components/copyright/copyright';
@@ -9,7 +12,7 @@ import FooterWidgetFour from '@/components/footer-widget/footer-widget-four';
 import shapeImg from '@/assets/img/shape/footer-1-1.png';
 import { Dribble, Facebook, Instagram, X } from '@/components/svg';
 
-const Logo = 'https://ik.imagekit.io/mikbqwyy0/WhatsApp%20Image%202026-07-14%20at%207.14.57%20PM.jpeg';
+const defaultLogo = 'https://ik.imagekit.io/mikbqwyy0/WhatsApp%20Image%202026-07-14%20at%207.14.57%20PM.jpeg';
 
 const socialData = [
   { id: 1, url: '#', platform: <Facebook /> },
@@ -19,6 +22,20 @@ const socialData = [
 ];
 
 const FooterTwo = () => {
+  const [siteSettings, setSiteSettings] = useState<any>(null);
+
+  useEffect(() => {
+    const apiBaseUrl = typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001');
+    fetch(`${apiBaseUrl}/api/settings/site`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data) setSiteSettings(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  const logoSrc = siteSettings?.logoUrl || defaultLogo;
+
   return (
     <footer>
       <div className="it-footer-wrap black-bg  z-index-1">
@@ -46,11 +63,12 @@ const FooterTwo = () => {
                   <div className="it-footer-widget-logo mb-30">
                     <Link href="/" className="it-footer-logo-link">
                       <Image
-                        src={Logo}
+                        src={logoSrc}
                         alt="logo"
                         width={160}
                         height={50}
                         className="it-footer-logo-img"
+                        unoptimized={true}
                       />
                     </Link>
                   </div>

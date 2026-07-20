@@ -1,7 +1,20 @@
 import ContactFormThree from '../form/contact-form-three';
 import { LocationTwo, MailTwo, PhoneFour } from '../svg';
 
-const ContactArea = () => {
+const defaultContact = {
+  phone: '(00) 875 784 5682',
+  email: 'togetoinfo@gmail.com',
+  address: '66 broklyn golden street. New York',
+  mapEmbedUrl: 'https://www.google.com/maps/@-5.4432737,-73.6358025,8.83z?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D',
+};
+
+interface ContactAreaProps {
+  contact?: any;
+}
+
+const ContactArea = ({ contact }: ContactAreaProps) => {
+  const currentContact = contact || defaultContact;
+
   return (
     <div className="it-contact-area it-contact-innar-style it-contact-style-2 pt-120 pb-120">
       <div className="container">
@@ -21,8 +34,8 @@ const ContactArea = () => {
                   </i>
                   <div>
                     <span>Have any question?</span>
-                    <a className="border-line-black" href="tel:008757845682">
-                      (00) 875 784 5682
+                    <a className="border-line-black" href={`tel:${currentContact.phone}`}>
+                      {currentContact.phone}
                     </a>
                   </div>
                 </li>
@@ -34,9 +47,9 @@ const ContactArea = () => {
                     <span>Write email</span>
                     <a
                       className="border-line-black"
-                      href="mailto:togetoinfo@gmail.com"
+                      href={`mailto:${currentContact.email}`}
                     >
-                      togetoinfo@gmail.com
+                      {currentContact.email}
                     </a>
                   </div>
                 </li>
@@ -49,18 +62,23 @@ const ContactArea = () => {
                     <a
                       className="border-line-black"
                       target="_blank"
-                      href="https://www.google.com/maps/@-5.4432737,-73.6358025,8.83z?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D"
+                      href={currentContact.mapEmbedUrl || 'https://www.google.com/maps'}
+                      rel="noreferrer"
                     >
-                      66 broklyn golden street. New York
+                      {currentContact.address}
                     </a>
                   </div>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="col-xl-8 col-lg-7 order-0 order-lg-1">
-            <div className="it-contact-form-box z-index-1 p-relative">
-              <h4 className="it-section-title pb-40">Contact For Queries?</h4>
+          <div className="col-xl-8 col-lg-7 order-0 order-lg-1 mb-50 mb-lg-0">
+            <div className="it-contact-wrap-box">
+              <span className="it-section-subtitle">contact with us</span>
+              <h4 className="it-section-title pb-35">
+                Let’s talk about your <br />
+                Business.
+              </h4>
               <ContactFormThree />
             </div>
           </div>

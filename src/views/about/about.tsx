@@ -17,7 +17,7 @@ import AboutMissionVision from '@/components/about/about-mission-vision';
 import AboutTeamSlider from '@/components/team/about-team-slider';
 import AboutSolutions from '@/components/about/about-solutions';
 
-const AboutMain = () => {
+const AboutMain = ({ data }: { data?: any }) => {
   // Enable Gsap ANimations
   useGsapAnimations();
 
@@ -37,10 +37,10 @@ const AboutMain = () => {
 
       <main>
         <Breadcrumb title="About Us" subtitle="About" />
-        <AboutThree hideButton />
-        <AboutMissionVision />
-        <AboutSolutions />
-        <AboutTeamSlider />
+        <AboutThree hideButton about={data?.about} counters={data?.counters} />
+        <AboutMissionVision tabs={data?.tabs} />
+        <AboutSolutions solutions={data?.solutions} />
+        <AboutTeamSlider team={data?.team} />
       </main>
 
       <FooterTwo />

@@ -1,7 +1,30 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import SocialBox from '../social/social-box';
 import { Phone } from '../svg';
 
+const defaultContact = {
+  phone: '(91) 187 047 5767',
+  email: 'togetoinfo@gmail.com',
+  address: '238, Arimantab, Moska - USA.',
+};
+
 const TopBarArea = () => {
+  const [contact, setContact] = useState<any>(null);
+
+  useEffect(() => {
+    const apiBaseUrl = typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001');
+    fetch(`${apiBaseUrl}/api/contact-settings`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data) setContact(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  const currentContact = contact || defaultContact;
+
   return (
     <div className="it-header-top-area it-header-top-ptb black-bg">
       <div className="container">
@@ -12,14 +35,14 @@ const TopBarArea = () => {
                 <li className="d-none d-lg-inline-block">
                   <span>
                     <Phone />
-                    <a href="tel:008757845682">(91) 187 047 5767</a>
+                    <a href={`tel:${currentContact.phone}`}>{currentContact.phone}</a>
                   </span>
                 </li>
                 <li>
                   <span>
                     <i className="fa-light fa-envelope-open-text"></i>
-                    <a href="mailto:mcssainfo@gmail.com">
-                      togetoinfo@gmail.com
+                    <a href={`mailto:${currentContact.email}`}>
+                      {currentContact.email}
                     </a>
                   </span>
                 </li>
@@ -28,9 +51,10 @@ const TopBarArea = () => {
                     <i className="fa-light fa-location-dot"></i>
                     <a
                       target="_blank"
-                      href="https://www.google.com/maps/@23.843848,90.3081992,17.5z?entry=ttu&g_ep=EgoyMDI1MDEwMS4wIKXMDSoASAFQAw%3D%3D"
+                      href={currentContact.mapEmbedUrl || "https://www.google.com/maps"}
+                      rel="noreferrer"
                     >
-                      238, Arimantab, Moska - USA.
+                      {currentContact.address}
                     </a>
                   </span>
                 </li>

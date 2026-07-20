@@ -1,7 +1,45 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const ChooseTwo = () => {
+const defaultWhyChoose = {
+  subtitle: 'Why choose us Togeto',
+  title: 'Why Choose Us for Your Logistics Needs?',
+  description: 'Logistics ensures the efficient movement of goods, managing, transportation, storage, and delivery. It plays a vital role in',
+  imageUrl: 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001',
+};
+
+const defaultFeatures = [
+  {
+    id: 1,
+    title: 'Corporate Moves',
+    description: 'Flexible & Efficient Transport Locally & Internationally.',
+  },
+  {
+    id: 2,
+    title: 'Maximum Cargo Flexibility',
+    description: 'Flexible & Efficient Transport Locally & Internationally.',
+  },
+  {
+    id: 3,
+    title: 'Custom Logistics',
+    description: 'Flexible & Efficient Transport Locally & Internationally.',
+  },
+  {
+    id: 4,
+    title: 'Flexible Freight',
+    description: 'Flexible & Efficient Transport Locally & Internationally.',
+  },
+];
+
+interface ChooseTwoProps {
+  whyChoose?: any;
+  features?: any[];
+}
+
+const ChooseTwo = ({ whyChoose, features }: ChooseTwoProps) => {
+  const currentWhyChoose = whyChoose || defaultWhyChoose;
+  const data = features && features.length > 0 ? features : defaultFeatures;
+
   return (
     <div
       id="choose"
@@ -14,7 +52,7 @@ const ChooseTwo = () => {
             <div className="it-choose-right">
               <div className="it-section-title-box pb-20">
                 <span className="it-section-subtitle">
-                  Why choose us Togeto
+                  {currentWhyChoose.subtitle}
                 </span>
                 <h4
                   className="it-section-title text-dark fw-bold mb-25"
@@ -24,53 +62,25 @@ const ChooseTwo = () => {
                     fontWeight: 800,
                   }}
                 >
-                  Why Choose Us for <br />
-                  Your <span>Logistics</span> Needs?
+                  {currentWhyChoose.title}
                 </h4>
                 <p className="text-muted mb-40" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                  Logistics ensures the efficient movement of goods, managing, transportation,
-                  storage, and delivery. It plays a vital role in
+                  {currentWhyChoose.description}
                 </p>
               </div>
 
               {/* 2x2 Grid */}
               <div className="row mb-40">
-                {/* Item 1 */}
-                <div className="col-md-6 mb-30">
-                  <h5 className="fw-bold text-dark mb-10" style={{ fontSize: '18px', fontWeight: 700 }}>
-                    Corporate Moves
-                  </h5>
-                  <p className="text-muted mb-0" style={{ fontSize: '14px', lineHeight: '1.5' }}>
-                    Flexible & Efficient Transport Locally & Internationally.
-                  </p>
-                </div>
-                {/* Item 2 */}
-                <div className="col-md-6 mb-30">
-                  <h5 className="fw-bold text-dark mb-10" style={{ fontSize: '18px', fontWeight: 700 }}>
-                    Maximum Cargo Flexibility
-                  </h5>
-                  <p className="text-muted mb-0" style={{ fontSize: '14px', lineHeight: '1.5' }}>
-                    Flexible & Efficient Transport Locally & Internationally.
-                  </p>
-                </div>
-                {/* Item 3 */}
-                <div className="col-md-6 mb-30">
-                  <h5 className="fw-bold text-dark mb-10" style={{ fontSize: '18px', fontWeight: 700 }}>
-                    Custom Logistics
-                  </h5>
-                  <p className="text-muted mb-0" style={{ fontSize: '14px', lineHeight: '1.5' }}>
-                    Flexible & Efficient Transport Locally & Internationally.
-                  </p>
-                </div>
-                {/* Item 4 */}
-                <div className="col-md-6 mb-30">
-                  <h5 className="fw-bold text-dark mb-10" style={{ fontSize: '18px', fontWeight: 700 }}>
-                    Flexible Freight
-                  </h5>
-                  <p className="text-muted mb-0" style={{ fontSize: '14px', lineHeight: '1.5' }}>
-                    Flexible & Efficient Transport Locally & Internationally.
-                  </p>
-                </div>
+                {data.map((item) => (
+                  <div key={item.id} className="col-md-6 mb-30">
+                    <h5 className="fw-bold text-dark mb-10" style={{ fontSize: '18px', fontWeight: 700 }}>
+                      {item.title}
+                    </h5>
+                    <p className="text-muted mb-0" style={{ fontSize: '14px', lineHeight: '1.5' }}>
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               <Link className="it-btn-orange" href="/about">
@@ -102,7 +112,7 @@ const ChooseTwo = () => {
               <div className="position-relative" style={{ zIndex: 2 }}>
                 <Image
                   className="w-100 h-auto object-fit-cover shadow-lg"
-                  src='https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001'
+                  src={currentWhyChoose.imageUrl || 'https://ik.imagekit.io/mikbqwyy0/71e49fec-9428-4383-bbb2-2e2339f4536e.png?updatedAt=1784131711001'}
                   alt="choose-img"
                   width={550}
                   height={600}

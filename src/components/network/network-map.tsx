@@ -153,8 +153,33 @@ const indiaMarkers = [
   },
 ];
 
-const NetworkMap = () => {
+function mapCoordsToPosition(lat: number, lng: number) {
+  // Simple mapping function for bounding box of the world map
+  // Lat range: roughly 80 to -60. Lng range: roughly -170 to 180
+  const top = 90 - ((lat + 60) / 140) * 80;
+  const left = ((lng + 170) / 350) * 90 + 5;
+  return { top: `${Math.max(10, Math.min(90, top))}%`, left: `${Math.max(5, Math.min(95, left))}%` };
+}
+
+interface NetworkMapProps {
+  networks?: any[];
+}
+
+const NetworkMap = ({ networks }: NetworkMapProps) => {
   const [activeTab, setActiveTab] = useState<'world' | 'india'>('world');
+
+  const worldData = networks && networks.length > 0 ? networks.map((net, idx) => {
+    const pos = mapCoordsToPosition(net.latitude, net.longitude);
+    return {
+      id: net.id,
+      country: net.address.split(',').pop()?.trim() || 'Global',
+      city: net.name,
+      top: pos.top,
+      left: pos.left,
+      routes: 'Active Route',
+      desc: net.address,
+    };
+  }) : networkMarkers;
 
   return (
     <div className="it-network-map-section pt-130 pb-130">
@@ -217,11 +242,11 @@ const NetworkMap = () => {
                 />
 
                 {/* Pulsing markers with details tooltips */}
-                {networkMarkers.map((marker) => (
+                {worldData.map((marker) => (
                   <div
-                    key={marker.id}
-                    className="network-marker"
-                    style={{ top: marker.top, left: marker.left }}
+                      key={marker.id}
+                      className="network-marker"
+                      style={{ top: marker.top, left: marker.left }}
                   >
                     <div className="pulse-dot"></div>
                     <div className="marker-tooltip">

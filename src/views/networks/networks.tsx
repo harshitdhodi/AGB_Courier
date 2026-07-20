@@ -9,7 +9,7 @@ import FooterTwo from '@/layouts/footers/footer-two';
 import Breadcrumb from '@/components/bradcrumb/breadcrumb';
 import NetworkMap from '@/components/network/network-map';
 
-const NetworksMain = () => {
+const NetworksMain = ({ data }: { data?: any }) => {
   // GSAP animations
   useGSAP(() => {
     const timer = setTimeout(() => {
@@ -25,8 +25,7 @@ const NetworksMain = () => {
 
       <main>
         <Breadcrumb title="Our Networks" subtitle="Networks" />
-        <NetworkMap />
-        {/* <BrandOne /> */}
+        <NetworkMap networks={data?.networks} />
       </main>
 
       <FooterTwo />

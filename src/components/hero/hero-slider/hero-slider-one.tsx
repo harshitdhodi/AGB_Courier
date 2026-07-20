@@ -16,30 +16,11 @@ const sliderData = [
                     delays and optimizing supply chain management.`,
     btnUrl: '/contact',
     btnText: 'Get Started Now',
-  },
-  {
-    id: 2,
-    bgImg: 'https://ik.imagekit.io/mikbqwyy0/c073c1d6-d8e8-4a0c-8a67-395461bbee4e.png',
-    title: 'Modern Logistics <br> Transportation',
-    subtitle: `EFFORTLESS SHIPPING`,
-    description: `Efficient logistics enhances global shipping by reducing <br>
-                    delays and optimizing supply chain management.`,
-    btnUrl: '/contact',
-    btnText: 'Get Started Now',
-  },
-  {
-    id: 3,
-    bgImg: 'https://ik.imagekit.io/mikbqwyy0/4723a5e3-690a-4e91-8c14-8d57896f109c.png',
-    title: 'Trusted Global <br> Freight Solutions',
-    subtitle: `INNOVATIVE LOGISTICS`,
-    description: `Efficient logistics enhances global shipping by reducing <br>
-                    delays and optimizing supply chain management.`,
-    btnUrl: '/contact',
-    btnText: 'Get Started Now',
-  },
+  }
 ];
 
-const HeroSliderOne = () => {
+const HeroSliderOne = ({ slides }: { slides?: any[] }) => {
+  const data = slides && slides.length > 0 ? slides : sliderData;
   const sliderOptions: SwiperOptions = {
     slidesPerView: 1,
     loop: true,
@@ -62,7 +43,7 @@ const HeroSliderOne = () => {
             {...sliderOptions}
             className="swiper-wrapper"
           >
-            {sliderData.map((item) => (
+            {data.map((item) => (
               <SwiperSlide key={item.id} className="swiper-slide">
                 <div className="it-slider-overlay z-index-1 fix p-relative">
                   <div

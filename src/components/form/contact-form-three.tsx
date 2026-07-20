@@ -37,9 +37,30 @@ const ContactFormThree = () => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = handleSubmit((data: FormData) => {
-    alert(JSON.stringify(data));
-    reset();
+  const onSubmit = handleSubmit(async (data: FormData) => {
+    try {
+      const apiBaseUrl = typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001');
+      const res = await fetch(`${apiBaseUrl}/api/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: `Website: ${data.website}`,
+          message: data.messages,
+        }),
+      });
+      if (res.ok) {
+        alert('Thank you for contacting us! Your inquiry has been received.');
+        reset();
+      } else {
+        alert('Failed to submit. Please try again.');
+      }
+    } catch (e) {
+      console.error(e);
+      alert('An error occurred. Please try again.');
+    }
   });
   return (
     <form onSubmit={onSubmit} noValidate>

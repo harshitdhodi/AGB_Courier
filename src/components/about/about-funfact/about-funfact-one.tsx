@@ -2,6 +2,7 @@ import Counter from '@/components/funfact/counter-item/counter-item';
 
 interface AboutProps {
   itemClass?: string;
+  counters?: any[];
 }
 
 const counterData = [
@@ -25,11 +26,13 @@ const counterData = [
   },
 ];
 
-const AboutFunFactOne = ({ itemClass }: AboutProps) => {
+const AboutFunFactOne = ({ itemClass, counters }: AboutProps) => {
+  const data = counters && counters.length > 0 ? counters : counterData;
+
   return (
     <div className={itemClass || ''}>
       <div className="row gx-0">
-        {counterData.map((item) => (
+        {data.map((item) => (
           <div key={item.id} className="col-md-4 col-sm-6 counter-col">
             <div className="it-about-counter-box">
               <h5 className="it-about-counter-number">

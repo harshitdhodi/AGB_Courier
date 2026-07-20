@@ -10,7 +10,7 @@ import {
 } from 'react-accessible-accordion';
 
 interface IFaqItem {
-  id: string;
+  id: string | number;
   question: string;
   answer: string;
 }
@@ -43,7 +43,14 @@ const faqData: IFaqItem[] = [
   },
 ];
 
-const HomeFaq = () => {
+interface HomeFaqProps {
+  faqs?: any[];
+}
+
+const HomeFaq = ({ faqs }: HomeFaqProps) => {
+  const data = faqs && faqs.length > 0 ? faqs : faqData;
+  const defaultUuid = data[0]?.id ? String(data[0].id) : 'faq-1';
+
   return (
     <div id="faq-section" className="it-home-faq">
       <div className="container">
@@ -79,14 +86,14 @@ const HomeFaq = () => {
             <div className="it-home-faq-accordion">
               <Accordion
                 className="accordion"
-                preExpanded={['faq-1']}
+                preExpanded={[defaultUuid]}
                 allowZeroExpanded
               >
-                {faqData.map((item) => (
+                {data.map((item) => (
                   <AccordionItem
                     key={item.id}
                     className="accordion-items"
-                    uuid={item.id}
+                    uuid={String(item.id)}
                   >
                     <AccordionItemHeading className="accordion-header">
                       <AccordionItemButton className="accordion-buttons">

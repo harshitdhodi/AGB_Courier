@@ -6,7 +6,22 @@ import Image from 'next/image';
 import shape1 from '@/assets/img/shape/choose-1.png';
 import shape2 from '@/assets/img/shape/testimonial-3-2.png';
 
-const HomeCta = () => {
+const defaultCta = {
+  title: 'Ready to Optimize Your Shipping & Logistics?',
+  description: 'Join thousands of businesses who trust Togeto for secure, on-time freight transport, expert customs clearance, and end-to-end warehousing services. Let’s move your supply chain forward today.',
+  btn1Text: 'Get a Free Quote',
+  btn1Url: '/contact',
+  btn2Text: 'Learn More About Us',
+  btn2Url: '/about',
+};
+
+interface HomeCtaProps {
+  cta?: any;
+}
+
+const HomeCta = ({ cta }: HomeCtaProps) => {
+  const currentCta = cta || defaultCta;
+
   return (
     <div className="it-home-cta text-center">
       {/* Decorative background shapes */}
@@ -37,17 +52,17 @@ const HomeCta = () => {
             data-wow-delay=".3s"
           >
             <h2 className="cta-title">
-              Ready to Optimize Your Shipping & Logistics?
+              {currentCta.title}
             </h2>
             <p className="cta-text">
-              Join thousands of businesses who trust Togeto for secure, on-time freight transport, expert customs clearance, and end-to-end warehousing services. Let’s move your supply chain forward today.
+              {currentCta.description}
             </p>
             <div className="cta-buttons">
-              <Link href="/contact" className="it-btn-orange">
-                <span>Get a Free Quote</span>
+              <Link href={currentCta.btn1Url || '/contact'} className="it-btn-orange">
+                <span>{currentCta.btn1Text || 'Get a Free Quote'}</span>
               </Link>
-              <Link href="/about" className="it-btn-white hover-2">
-                <span>Learn More About Us</span>
+              <Link href={currentCta.btn2Url || '/about'} className="it-btn-white hover-2">
+                <span>{currentCta.btn2Text || 'Learn More About Us'}</span>
               </Link>
             </div>
           </div>
